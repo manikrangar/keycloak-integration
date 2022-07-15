@@ -4,6 +4,9 @@ import { Component, OnInit } from '@angular/core';
 import Keycloak from 'keycloak-js';
 import { KeycloakAuthGuard, KeycloakService } from 'keycloak-angular';
 import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
+import { Injectable } from '@angular/core';
+import { AuthService } from '../auth.service';
+
 import {
     ActivatedRouteSnapshot,
     Router,
@@ -43,6 +46,7 @@ export class WelcomeComponent  implements OnInit {
 
   login(){
     initializeKeycloak()
+    AuthService.login();
     // this.keycloak.login({redirectUri:'http://localhost:4200/dashboard'});
 
     // initializeKeycloak(this.keycloak);

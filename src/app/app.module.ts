@@ -26,12 +26,12 @@ import { Caller} from './utility/app.caller';
     KeycloakAngularModule
   ],
   providers: [
-    // {
-    //   provide:APP_INITIALIZER,  
-    //   useFactory: initializeKeycloak,
-    //   multi: true,
-    //   deps: [KeycloakService]
-    // },
+    {
+      provide:APP_INITIALIZER,  
+      useFactory: initializeKeycloak,
+      multi: true,
+      deps: [KeycloakService,AuthService]
+    },
     AuthService
   ],
   bootstrap: [AppComponent]

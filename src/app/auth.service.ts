@@ -8,17 +8,30 @@ import { KeycloakService } from 'keycloak-angular';
   providedIn: 'root'
 })
 export class AuthService {
-  KeycloakInstance:any; 
+
+  public static KeycloakInstance:any; 
+  
   constructor() {}
-  login(){
-    console.log(this.KeycloakInstance.authenticated)
-    if(this.KeycloakInstance.authenticated)
-    alert("already logged in ")
+  
+  static login(){
+    console.log(AuthService.KeycloakInstance.authenticated)
+    if(AuthService.KeycloakInstance.authenticated){
+      alert("already logged in ")
+
+      console.log(AuthService.KeycloakInstance.token());
+  }
     else{
-    this.KeycloakInstance.login();
+      debugger
+      console.log(AuthService.KeycloakInstance);
+      debugger
+
+      AuthService.KeycloakInstance.login();
+      // AuthService.KeycloakInstance.logout('http://localhost:4200/');
+
+      
     // this.router.navigate(['/dashboard']);
     // debugger
-    // console.log(this.KeycloakInstance.loadUserProfile(),this.KeycloakInstance.refreshTokens)
+    console.log(AuthService.KeycloakInstance.loadUserProfile(),AuthService.KeycloakInstance.refreshTokens)
     // debugger
   }
   }

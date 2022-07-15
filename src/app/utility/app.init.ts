@@ -4,50 +4,58 @@ import { KeycloakService } from "keycloak-angular";
 import Keycloak from "keycloak-js"
 import { WelcomeComponent } from "../welcome/welcome.component";
 import { Router } from '@angular/router';
+const auth = new AuthService()
+
 export function initializeKeycloak() {
-    // alert("service called")
+  // setTimeout(()=>{
+  // alert("service called")
     // return (): Promise<boolean> =>{
-    //   return new Promise(async (resolve,reject)=>{
-    //     try{
-    //       await keycloak.init({
-    //         config:{
-    //           url: 'http://localhost:8080/',
-    //                 realm: 'angular-web',
-    //                 clientId: 'angular-web-client'
-    //         },
-    //         loadUserProfileAtStartUp:true,
-    //         initOptions:{
-    //           onLoad:"check-sso",
-              
-    //           checkLoginIframe:true,
-    //           checkLoginIframeInterval:25
-    //         },
-    //         // interpolation:false;
-    //         enableBearerInterceptor: false,
-    //       });  
-    //       resolve(true);
-    //     } catch(error){
-    //       reject(error);
-    //     }
-    //   })
-    // }
+      //   return new Promise(async (resolve,reject)=>{
+        //     try{
+          //       await keycloak.init({
+            //         config:{
+              //           url: 'http://localhost:8080/',
+              //                 realm: 'angular-web',
+              //                 clientId: 'angular-web-client'
+              //         },
+              //         loadUserProfileAtStartUp:true,
+              //         initOptions:{
+                //           onLoad:"check-sso",
+                
+                //           checkLoginIframe:true,
+                //           checkLoginIframeInterval:25
+                //         },
+                //         // interpolation:false;
+                //         enableBearerInterceptor: false,
+                //       });  
+                //       resolve(true);
+                //     } catch(error){
+                  //       reject(error);
+                  //     }
+                  //   })
+                  // }
  
-  const service = new Keycloak({
+                  const service = new Keycloak({
               url: 'http://localhost:8080/',
-                    realm: 'angular-web',
-                    clientId: 'angular-web-client',
+              realm: 'angular-web',
+              clientId: 'angular-web-client',
             });
-return  service.init({
+          
+            return  service.init({
               onLoad:"check-sso",
+              checkLoginIframe:true,
               
-            }).then(async (res)=>{
+              
+              
+            }).then( (res)=>{
               debugger
               console.log(res);
-              const auth = new AuthService()
-              auth.KeycloakInstance=service
+              AuthService.KeycloakInstance=service
+              console.log(AuthService.KeycloakInstance);
               debugger
-
-              await auth.login()
+              
+              // AuthService.login()
+              // service.loadUserProfile();
               
               
               // console.log(service.loadUserProfile(),service.refreshToken)
@@ -58,4 +66,6 @@ return  service.init({
               console.log(err);
               
             })
-  }
+          // },3000);
+          }
+          
