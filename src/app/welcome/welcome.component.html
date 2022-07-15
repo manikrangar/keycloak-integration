@@ -1,0 +1,26 @@
+<!-- <div class="container  bg bg-success border border-dark my-5  p-4 text-center" > -->
+
+    <!-- <h3 class="text-white">Welcome To Website</h3> -->
+
+    <!-- <button class="btn btn-primary "><a routerLink="/dashboard" routerLinkActive="active" ariaCurrentWhenActive="page" class="text-white" style="text-decoration: none">Login</a></button> -->
+    <!-- <a class="btn btn-warning " (click)="login()" >Login</a> -->
+
+<!-- </div> -->
+
+<section class="login">
+    <div class="login_box">
+    <div class="left">
+    <div class="contact">
+    <button class="submit" (click)="login()">Sign In With Google</button>
+    <p>{{getInfo()}}</p>
+    <button class="submit" *ngIf="getInfo()" routerLink="/dashboard">Get Info</button>
+    </div>
+    </div>
+    <div class="right">
+    <div class="right-text">
+    <h2>Kochar Tech</h2>
+    <h6>ENHANCING CUSTOMER EXPERIENCE THROUGH TECHNOLOGY</h6>
+    </div>
+    </div>
+    </div>
+    </section>

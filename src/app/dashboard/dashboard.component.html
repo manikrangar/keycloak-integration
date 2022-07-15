@@ -1,0 +1,90 @@
+<!-- <div class="container  bg bg-warning border border-dark my-5  p-4 text-center" >
+
+    <h3 >Welcome To Dashboard</h3>
+    <h4>Hello!! {{user}}</h4>
+
+    <button class="btn btn-primary m-2" (click)="initializeUserOption()">About</button>
+    <button  (click)="logout()" class="btn btn-danger m-2" >Logout</button>
+    
+</div> -->
+<div class="container bg bg-warning border border-dark my-5 p-4 text-center" >
+
+ 
+
+    <button (click)="logout()" class="btn btn-danger m-2" >Logout</button>
+     
+    
+    </div>
+    <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+    <h3 class="heading-primary">Kochar Tech Dashboard</h3>
+     
+    
+    </div>
+    </nav>
+     
+    
+    <h4 class="text-center mt-4">Employee's Record</h4>
+    <div class="table-container">
+    <table class="table">
+    <thead>
+    <tr>
+    <th scope="col">Sr. no</th>
+    <th scope="col">Employee Name</th>
+    <th scope="col">Employee Email</th>
+    <th scope="col">Employee Phone</th>
+    <th scope="col">Employee Age</th>
+    <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- <tr *ngFor="let row of employees; index as i">
+    <td>{{ i + 1 }}</td>
+    <td>{{ row.employeeName }}</td>
+    <td>{{ row.email }}</td>
+    <td>{{ row.mobile }}</td>
+    <td>{{ row.age }}</td>
+    <td>
+    <button
+    type="button"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal"
+    class="button edit"
+    (click)="onEdit(row)"
+    >
+    Edit
+    </button>
+    <button (click)="deleteEmployee(row)" class="button delete">
+    Delete
+    </button>
+    </td>
+    </tr> -->
+    </tbody>
+    </table>
+    </div>
+     
+    
+    <p>login works!</p>
+    <table>
+    <tr>
+    <th> 0 </th>
+    <th> 1 </th>
+    </tr>
+    <tr *ngFor="let c of userObject | keyvalue">
+    <td>{{c.key}}</td>
+    <td>{{c.value}}</td>
+    </tr>
+     
+    
+    </table>
+    <textarea>
+    {{tokens}}
+    </textarea>
+     
+    
+    <textarea>
+    {{refreshTokens}}
+    </textarea>
+    <input type="button" value="updateToken" (click)="update()">
+    <input type="button" value="LOGOUT" (click)="logout()">
+     
